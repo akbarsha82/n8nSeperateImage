@@ -1,8 +1,6 @@
-# Base n8n image
 FROM n8nio/n8n:latest
 
-# Install ffmpeg inside n8n container
+# Install ffmpeg in Alpine
 USER root
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
-
+RUN apk add --no-cache ffmpeg
 USER node
